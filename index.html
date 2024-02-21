@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+
+  <title>Yasuo The King | Checkout Success</title>
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      padding: 0;
+      margin: 0;
+      box-sizing: inherit;
+    }
+
+    html {
+      box-sizing: border-box;
+      font-size: 62.5%;
+      overflow-x: hidden;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.4;
+    }
+
+    body::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* General */
+    .remove {
+      display: none !important;
+    }
+
+    .block {
+      width: 100%;
+      max-width: 38rem;
+    }
+
+    .roboto-regular {
+      font-family: "Roboto", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    /* Main */
+    .container {
+      min-height: 100vh;
+      background-image: linear-gradient(to right, #0c0c0c 50%, #fff 50%);
+      background-size: 100% 100%;
+      padding: 5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    main {
+      width: 100%;
+      max-width: 92rem;
+      min-height: 48rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Left */
+    .block-left {
+      color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .block-left__mobile {
+      width: 100vw;
+      height: 100%;
+      background-color: #0c0c0c;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      position: absolute;
+      z-index: -1;
+      display: none;
+    }
+
+    .left-header {
+      display: flex;
+      align-items: center;
+    }
+
+    .left-header__image {
+      width: 3rem;
+      height: 3rem;
+      margin-right: 1rem;
+      border-radius: 100%;
+    }
+
+    .left-header__text {
+      font-size: 1.4rem;
+      letter-spacing: 0.2rem;
+    }
+
+    .left-content {
+      margin-top: 3.2rem;
+    }
+
+    .left-content__name {
+      color: #ffffff99;
+      font-size: 1.7rem;
+      text-transform: uppercase;
+    }
+
+    .left-content__price {
+      font-size: 3.4rem;
+      font-weight: 500;
+      letter-spacing: 0.1rem;
+    }
+
+    .left-content__desc {
+      color: #ffffff99;
+      font-size: 1.5rem;
+    }
+
+    .left-image__wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding-bottom: 2rem;
+    }
+
+    .left-image {
+      width: 100%;
+      max-width: 30rem;
+      border-radius: 0.6rem;
+      margin: 1.6rem 0;
+    }
+
+    .block-footer {
+      margin-top: 1.2rem;
+    }
+
+    .block-footer {
+      color: #ffffff99;
+      font-size: 1.2rem;
+    }
+
+    .block-footer,
+    .block-footer__cod {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .block-footer__author {
+      padding-right: 0.8rem;
+      border-right: 1px solid #ffffff47;
+    }
+
+    /* Right */
+    .block-right {
+      color: #0c0c0c;
+    }
+
+    .right-hr {
+      width: 100%;
+      height: 0.1rem;
+      background-color: #cccccc80;
+      margin: 2.4rem 0;
+    }
+
+    .right-header {
+      color: #000;
+      font-size: 1.7rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .right-header__icon {
+      fill: #33c5df;
+      margin-right: 1rem;
+    }
+
+    .right-header__icon.error {
+      fill: #f46275;
+    }
+
+    .right-email {
+      background-color: #cccccc50;
+      font-size: 1.4rem;
+      padding: 1.2rem;
+      border: 1px solid #cccccc80;
+      border-radius: 0.4rem;
+      box-shadow: 0 0.2rem 0.4rem #00000010;
+      display: flex;
+      align-items: center;
+    }
+
+    .right-email__text {
+      width: 30%;
+    }
+
+    .right-message {
+      margin-top: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .right-info {
+      font-size: 1.4rem;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .right-info__text {
+      font-weight: 500;
+    }
+
+    .right-confirm-button {
+      width: 100%;
+      background-color: #33c5df;
+      color: #000;
+      font-size: 1.7rem;
+      font-weight: 500;
+      border: none;
+      outline: none;
+      padding: 1.2rem;
+      border-radius: 0.4rem;
+      cursor: pointer;
+      transition: all ease 0.2s;
+    }
+
+    .right-confirm-button.error {
+      background-color: #f46275;
+    }
+
+    .right-confirm-button:hover {
+      filter: brightness(1.05);
+    }
+
+    .right-footer {
+      display: none;
+    }
+
+    /* Responsive */
+    @media only screen and (max-width: 52.5em) {
+      .container {
+        background-image: unset;
+        padding: 0;
+        display: block;
+      }
+
+      main {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .block {
+        max-width: 40rem;
+        padding: 0 1rem;
+      }
+
+      .block-left {
+        background-color: #0c0c0c;
+        padding-top: 3rem;
+      }
+
+      .block-left__mobile {
+        display: block;
+      }
+
+      .left-footer {
+        display: none;
+      }
+
+      .block-right {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+      }
+
+      .right-footer {
+        color: #0c0c0c;
+        margin-top: 3rem;
+        display: flex;
+      }
+
+      .block-footer__author {
+        border-right: 1px solid #9a9a9a;
+      }
+    }
+
+    @media only screen and (max-width: 25.25em) {
+      .block-left {
+        padding-top: 1rem;
+      }
+
+      .block-right {
+        padding-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <main class="roboto-regular">
+
+      <div class="block block-left">
+        <div class="block-left__mobile"></div>
+
+        <header class="left-header">
+          <img class="left-header__image" src="/img/header.png" alt="Yasuo The King">
+          <p class="left-header__text">Yasuo The King</p>
+        </header>
+
+        <div class="left-content">
+          <p class="left-content__name">Yasuo - The Unforgiven</p>
+          <p class="left-content__price">$9,999.00</p>
+          <p class="left-content__desc">An Ionian of deep resolve, Yasuo is an agile swordsman who wield...
+          </p>
+        </div>
+
+        <div class="left-image__wrapper">
+          <img class="left-image"
+            src="https://stripe-camo.global.ssl.fastly.net/cacf2b4eb7b3e20a6746665bf254c3bebed116e335116f2a302e6f11634e506e/68747470733a2f2f64647261676f6e2e6c65616775656f666c6567656e64732e636f6d2f63646e2f696d672f6368616d70696f6e2f73706c6173682f596173756f5f302e6a7067"
+            alt="Yasuo The King">
+        </div>
+
+        <footer class="block-footer left-footer">
+          <div class="block-footer__author">
+            <p>Tran Nhat Ky</p>
+          </div>
+          <div class="block-footer__cod">
+            <p>Terms</p>
+            <p>Privacy</p>
+          </div>
+        </footer>
+      </div>
+
+      <div class="block block-right">
+        <header class="right-header">
+          <svg class="right-header__icon" xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24"
+            viewBox="0 0 32 32">
+            <path
+              d="M16 0c-8.836 0-16 7.164-16 16s7.164 16 16 16 16-7.164 16-16-7.164-16-16-16zM13.52 23.383l-7.362-7.363 2.828-2.828 4.533 4.535 9.617-9.617 2.828 2.828-12.444 12.445z" />
+          </svg>
+          <svg class="right-header__icon error remove" xmlns="http://www.w3.org/2000/svg" version="1.1" width="24"
+            height="24" viewBox="0 0 32 32">
+            <path
+              d="M16 0c-8.836 0-16 7.164-16 16s7.164 16 16 16 16-7.164 16-16-7.164-16-16-16zM23.914 21.086l-2.828 2.828-5.086-5.086-5.086 5.086-2.828-2.828 5.086-5.086-5.086-5.086 2.828-2.828 5.086 5.086 5.086-5.086 2.828 2.828-5.086 5.086 5.086 5.086z" />
+          </svg>
+          <!-- <p>Checkout successfully!</p> -->
+          <p>Checkout failed!</p>
+        </header>
+
+        <div class="right-hr"></div>
+
+        <div class="right-email">
+          <p class="right-email__text">Email</p>
+          <p>nhockkutean2@gmail.com</p>
+        </div>
+
+        <p class="right-message">The Code of the skin was sent to your email! Please check. If there was
+          something
+          wrong,
+          contact admin via <span class="right-message__email" style="font-weight: 500;">nhockkutean2@gmail.com</span>
+        </p>
+        <p class="right-message remove">Something went wrong! Please try again. If you need any help, contact admin via
+          <span class="right-message__email" style="font-weight: 500;">nhockkutean2@gmail.com</span>
+        </p>
+
+        <div class="right-hr"></div>
+
+        <div class="right-info">
+          <p class="right-info__text">RECEIPT</p>
+          <p class="right-info__value">#1234-5678</p>
+        </div>
+        <div class="right-info">
+          <p class="right-info__text">AMOUNT PAID</p>
+          <p>$49.97</p>
+        </div>
+        <div class="right-info">
+          <p class="right-info__text">DATE PAID</p>
+          <p>February 21, 2024</p>
+        </div>
+        <div class="right-info">
+          <p class="right-info__text">PAYMENT METHOD</p>
+          <p><span style="font-weight: 500;">Visa</span> - 4242</p>
+        </div>
+
+        <div class="right-hr"></div>
+
+        <button class="right-confirm-button">Confirm</button><!-- error -->
+
+        <footer class="block-footer right-footer">
+          <div class="block-footer__author">
+            <p>Tran Nhat Ky</p>
+          </div>
+          <div class="block-footer__cod">
+            <p>Terms</p>
+            <p>Privacy</p>
+          </div>
+        </footer>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>
